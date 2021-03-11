@@ -24,3 +24,4 @@ Route::get('/about', [StaticPagesController::class,'about'])->name('about');
 
 use App\Http\Controllers\UsersController;
 Route::get('/signup', [UsersController::class,'create'])->name('signup');
+Route::resource('users', UsersController::class);
