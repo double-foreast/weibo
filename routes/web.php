@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+use App\Http\Controllers\StaticPagesController;
+Route::get('/', [StaticPagesController::class,'home'])->name('home');
+Route::get('/help', [StaticPagesController::class,'help'])->name('help');
+Route::get('/about', [StaticPagesController::class,'about'])->name('about');
+
+use App\Http\Controllers\UsersController;
+Route::get('/signup', [UsersController::class,'create'])->name('signup');
