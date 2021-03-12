@@ -6,7 +6,8 @@
         <li class="nav-item"><a class="nav-link" href="#">用户列表</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">
-            {{ Auth::user()->name }} <b class="caret"></b>
+            {{ Auth::user()->name }}
+            {{-- <b class="caret"></b> --}}
           </a>
           {{-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('users.show',Auth::user()) }}">个人中心</a>
@@ -35,7 +36,7 @@
             </li>
           </ul>
         </li>
-        @else
+      @else
         <li class="nav-item"><a class="nav-link" href="{{ route('help') }}">帮助</a></li>
         <li class="nav-item" ><a class="nav-link" href="{{ route('login') }}">登录</a></li>
       @endif
