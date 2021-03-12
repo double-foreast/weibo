@@ -25,3 +25,9 @@ Route::get('/about', [StaticPagesController::class,'about'])->name('about');
 use App\Http\Controllers\UsersController;
 Route::get('/signup', [UsersController::class,'create'])->name('signup');
 Route::resource('users', UsersController::class);
+
+use App\Http\Controllers\SessionsController;
+Route::get('/login',[SessionsController::class,'create'])->name('login');
+Route::post('/login',[SessionsController::class,'store'])->name('login');
+Route::get('/logout',[SessionsController::class,'destory'])->name('logout');
+
