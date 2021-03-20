@@ -1,8 +1,8 @@
 <footer class="footer">
-  <img class="brand-icon" src="https://dn-phphub.qbox.me/uploads/images/201612/12/1/iq7WQc2iuW.png?imageView2/1/w/34/h/34">
-  <a href="https://laravel-china.org/courses" target=_blank>
+  <img class="brand-icon" src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/topnav/zhidao@2x-e9b427ecc4.png">
+  <b>
   刻意练习，每日精进
-  </a>
+  </b>
   <div class="float-right">
   <a href="{{ route('about') }}" >关于</a>
   </div>

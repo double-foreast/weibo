@@ -32,3 +32,14 @@ Route::get('/login',[SessionsController::class,'create'])->name('login');
 Route::post('/login',[SessionsController::class,'store'])->name('login');
 Route::get('/logout',[SessionsController::class,'destory'])->name('logout');
 
+use App\Http\Controllers\PasswordController;
+Route::get('password/email',[PasswordController::class,'getEmail'])->name('password.email');
+Route::post('password/email',[PasswordController::class,'postEmail'])->name('password.email');
+Route::get('password/reset/{token}',[PasswordController::class,'getReset'])->name('password.reset');
+Route::post('password/reset',[PasswordController::class,'postReset'])->name('password.update');
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
