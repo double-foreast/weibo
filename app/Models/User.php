@@ -62,4 +62,21 @@ class User extends Authenticatable
     public function gravatar(){
 
     }
+
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
+
+    public function createStatus($content)
+    {
+        return $this->statuses()->create([
+            'content' => $content
+        ]);
+    }
+
+    public function feed()
+    {
+        return $this->statuses()->orderBy('created_at','desc');
+    }
 }

@@ -25,7 +25,7 @@ Route::get('/about', [StaticPagesController::class,'about'])->name('about');
 use App\Http\Controllers\UsersController;
 Route::get('/signup', [UsersController::class,'create'])->name('signup');
 Route::resource('users', UsersController::class);
-Route::get('/signup/cofirm/{token}',[UsersController::class,'confirmEmail'])->name('confirm_email');
+Route::get('/signup/confirm/{token}',[UsersController::class,'confirmEmail'])->name('confirm_email');
 
 use App\Http\Controllers\SessionsController;
 Route::get('/login',[SessionsController::class,'create'])->name('login');
@@ -38,8 +38,6 @@ Route::post('password/email',[PasswordController::class,'postEmail'])->name('pas
 Route::get('password/reset/{token}',[PasswordController::class,'getReset'])->name('password.reset');
 Route::post('password/reset',[PasswordController::class,'postReset'])->name('password.update');
 
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+use App\Http\Controllers\StatusesController;
+Route::resource('statuses',StatusesController::class)->only(['store','destroy']);
 
