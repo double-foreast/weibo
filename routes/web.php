@@ -26,6 +26,8 @@ use App\Http\Controllers\UsersController;
 Route::get('/signup', [UsersController::class,'create'])->name('signup');
 Route::resource('users', UsersController::class);
 Route::get('/signup/confirm/{token}',[UsersController::class,'confirmEmail'])->name('confirm_email');
+Route::get('/users/{user}/followers',[UsersController::class,'followers'])->name('users.followers');
+Route::get('/users/{user}/followings',[UsersController::class,'followings'])->name('users.followings');
 
 use App\Http\Controllers\SessionsController;
 Route::get('/login',[SessionsController::class,'create'])->name('login');
@@ -41,3 +43,6 @@ Route::post('password/reset',[PasswordController::class,'postReset'])->name('pas
 use App\Http\Controllers\StatusesController;
 Route::resource('statuses',StatusesController::class)->only(['store','destroy']);
 
+use App\Http\Controllers\FollowersController;
+Route::post('/users/followers/{user}',[FollowersController::class,'store'])->name('followers.store');
+Route::delete('/users/followers/{user}',[FollowersController::class,'destroy'])->name('followers.destroy');
